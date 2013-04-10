@@ -16,7 +16,7 @@ This script extends the concepts that are discussed in the following article:
 
 ## Compatibility
 
-Test on Concrete 5 version 5.6.0.2. Although it wil probably work on older versions too.
+Tested on Concrete 5 version 5.6.0.2. Although it wil probably work on older versions too.
 
 ## Installation
 
@@ -34,7 +34,7 @@ And add this underneath:
 
 Step 2. Copy library files
 
-Copy the library directory to the libraries folder in your application.
+Copy this repository to the libraries directory in your application.
 
 Step 3. Setup configuration
 
