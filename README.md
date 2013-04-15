@@ -30,7 +30,7 @@ Find the following line:
 And add this underneath:
 
     ## Include the bootstrap cache
-    require(DIR_LIBRARIES . '/bootstrapcache/autoload.php');
+    require(DIR_LIBRARIES . '/concrete5-bootstrapcache/autoload.php');
 
 Step 2. Copy library files
 
