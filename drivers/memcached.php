@@ -32,7 +32,7 @@ class BootstrapCache_Driver_Memcached extends BootstrapCache_Driver {
 	}
 
 	public function set($data) {
-		$this->cacher->set($this->getKey(), $data);
+		$this->cacher->set($this->getKey(), $data, $this->expiration);
 	}
 
 	public function purge() {
