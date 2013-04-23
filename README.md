@@ -1,6 +1,6 @@
 # Concrete5 Bootstrap Cache
 
-Version 0.1 Alpha
+Version 1.0
 
 Concrete5 has excellent block caching which can increase the speed of your website; however there are instances where you don't need the power of a CMS to serve static pages. BootstrapCache caches content from Concrete 5 applications to speed up production servers. This project is based on Bootstrap Cache by Ryan Hewitt.
 
@@ -178,9 +178,12 @@ The above copyright notice and this permission notice shall be included in all c
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-## Contributors
+## Original author
 
 * @mesuva -- [Ryan Hewitt](http://www.mesuva.com.au/)
+
+## Contributors
+
 * @bashaus -- [Bashkim Isai](http://www.bashkim.com.au/)
 * @bluefuton -- [Chris Rosser](http://www.bluefuton.com/)
 
