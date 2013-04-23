@@ -6,13 +6,13 @@ class BootstrapCache {
 	protected $driver;
 
 	static $pages_exclude = array(
-		'login.*',
+		'login/?',
 		'tools/.*',
-		'dashboard/.*'
+		'dashboard/?.*'
 	);
 
 	static $pages_purge = array(
-		'login/logout'
+		'login/logout/?'
 	);
 
 	static $base_dir;
@@ -52,12 +52,6 @@ class BootstrapCache {
 			return $this->purge();
 		}
 
-		// Don't cache if the user is logged in
-		if (isset($_SESSION['uID'])) {
-			$this->log('debug', 'no caching as user is logged in');
-			return;
-		}
-
 		// Don't use a cache if there is user data
 		if (!empty($_GET)) {
 			$this->log('debug', 'not caching as request contains GET params');
@@ -90,6 +84,12 @@ class BootstrapCache {
 		// If this is a purge page, purge it
 		if (static::page_matches($page, static::$pages_purge)) {
 			return $this->purge();
+		}
+
+		// Don't cache if the user is logged in
+		if (isset($_SESSION['uID'])) {
+			$this->log('debug', 'no caching as user is logged in');
+			return;
 		}
 
 		// Test if a cache is available and (if yes) return it to the browser. 
