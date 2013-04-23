@@ -1,4 +1,4 @@
-<?php defined('C5_EXECUTE') or die("Access Denied.");
+<?php
 
 require_once __DIR__ . '/../cachelite/Lite.php';
 

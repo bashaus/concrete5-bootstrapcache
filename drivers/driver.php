@@ -1,4 +1,4 @@
-<?php defined('C5_EXECUTE') or die("Access Denied.");
+<?php
 
 abstract class BootstrapCache_Driver {
 	
@@ -17,7 +17,7 @@ abstract class BootstrapCache_Driver {
 	}
 
 	public function getKey() {
-		return $this->group . static::KEY_SEPARATOR . $this->id;
+		return $this->getGroup() . static::KEY_SEPARATOR . $this->getId();
 	}
 
 	// ID
@@ -44,12 +44,12 @@ abstract class BootstrapCache_Driver {
 
 	public function start() {
 		if (is_null($this->id) || is_null($this->group)) {
-			throw new Exception('You must pass an ID and a group to either setKey or to setId and setGroup');
+			throw new BootstrapCacheException('You must pass an ID and a group to either setKey or to setId and setGroup');
 		}
 
         $data = $this->get();
         if ($data !== false) {
-            echo($data);
+            echo $data;
             return true;
         }
         ob_start();
@@ -57,10 +57,16 @@ abstract class BootstrapCache_Driver {
         return false;
 	}
 
-	public function end() {
+	public function end($return=false) {
         $data = ob_get_contents();
-        ob_end_clean();
+		ob_end_clean();
+
         $this->set($data);
-        echo($data);
+
+        if ($return) {
+        	return $data;
+        }
+
+        echo $data;
 	}
 }

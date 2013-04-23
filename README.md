@@ -13,6 +13,7 @@ You want your static pages to be served over cache because you don't need all th
 This script extends the concepts that are discussed in the following article:
 
 * mesuva.com.au - [An extra cache for Concrete5](http://www.mesuva.com.au/blog/technical-notes/an-extra-cache-for-concrete5/)
+* kvz.io - [Speedup your website with Cache_Lite](http://kvz.io/blog/2007/08/01/speedup-your-website-with-cache-lite/)
 
 ## Compatibility
 
@@ -179,7 +180,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 ## Contributors
 
-* @bashaus -- [Bashkim Isai](http://www.bashkim.com.au/)
 * @mesuva -- [Ryan Hewitt](http://www.mesuva.com.au/)
+* @bashaus -- [Bashkim Isai](http://www.bashkim.com.au/)
+* @bluefuton -- [Chris Rosser](http://www.bluefuton.com/)
 
 If you fork this project and create a pull request add your GitHub username, your full name and website to the end of list above.

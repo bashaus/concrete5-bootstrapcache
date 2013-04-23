@@ -1,0 +1,5 @@
+<phpunit bootstrap="../autoload.php">
+	<php>
+		<const name="BOOTSTRAP_CACHE_PHPUNIT" value="1"/>
+	</php>
+</phpunit>

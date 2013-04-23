@@ -1,9 +1,9 @@
-<?php defined('C5_EXECUTE') or die("Access Denied.");
+<?php
 
 class BootstrapCache {
 
-	public $logger;
-	public $driver;
+	protected $logger;
+	protected $driver;
 
 	static $pages_exclude = array(
 		'login.*',
@@ -15,25 +15,29 @@ class BootstrapCache {
 		'login/logout'
 	);
 
+	static $base_dir;
+
 	const DEFAULT_CACHE_TIME = 604800; // 60 * 60 * 24 * 7 -- 7 days
 
 	function __construct() {
 	}
 
-	public static function factory($driver)
-	{
-		switch ($driver)
-		{
-			case 'memcached':
-				require_once 'drivers/memcached.php';
-				return 'BootstrapCache_Driver_Memcached';
+	public static function factory($driver) {
+		$basename = strtolower($driver);
 
-			case 'cachelite':
-				require_once 'drivers/cachelite.php';
-				return 'BootstrapCache_Driver_CacheLite';
+		if (!preg_match('/^[a-z0-9]+$/mis', $basename)) {
+			throw new BootstrapCacheException("Driver name '$driver' contains invalid characters (alphanumeric only)");
 		}
 
-		return null;
+		$filename = (static::$base_dir ?: realpath(__DIR__) . '/') . 'drivers/' . $basename . '.php';
+
+		if (!file_exists($filename)) {
+			throw new BootstrapCacheException('Driver file not found: ' . $filename);
+		}
+
+		include_once $filename;
+
+		return 'BootstrapCache_Driver_' . $driver;
 	}
 
 	public function render($page=null) {
@@ -119,7 +123,7 @@ class BootstrapCache {
 	 * Check to see if a page exists in a list
 	 */
 
-	protected static function page_matches($needle, $haystack) {
+	public static function page_matches($needle, $haystack) {
 		foreach ($haystack as $straw) {
 			if (preg_match('#^(\/index.php)?\/' . $straw . '$#i', $needle)) {
 				return true;
