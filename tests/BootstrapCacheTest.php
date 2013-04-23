@@ -28,7 +28,7 @@ class BootstrapCacheTest extends PHPUnit_Framework_TestCase
 		$this->assertTrue(BootstrapCache::page_matches('/login/one/two/three', $haystack));
 		$this->assertTrue(BootstrapCache::page_matches('/index.php/login/one/two/three', $haystack));
 
-		// should fail: no preceeding slash
+		// should fail: no preceding slash
 		$this->assertFalse(BootstrapCache::page_matches('login', $haystack));
 
 		// should fail: not in list
