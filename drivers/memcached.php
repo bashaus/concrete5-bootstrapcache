@@ -16,8 +16,8 @@ class BootstrapCache_Driver_Memcached extends BootstrapCache_Driver {
 		$this->expiration = $expiration;
 	}
 	
-	public function getExpiration($expiration) {
-		return $expiration;
+	public function getExpiration() {
+		return $this->expiration;
 	}
 
 	// Cache functions
