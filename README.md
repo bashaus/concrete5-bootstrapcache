@@ -66,6 +66,7 @@ You must select a driver for how you would like to run your cache. Depending on 
     // run the bootstrap
     $bootstrap_cache = new BootstrapCache;
     $bootstrap_cache->setDriver($driver);
+    $bootstrap_cache->attachEvents();
     $bootstrap_cache->render();
 
 ### CacheLite
@@ -87,6 +88,7 @@ You must select a driver for how you would like to run your cache. Depending on 
     // run the bootstrap
     $bootstrap_cache = new BootstrapCache;
     $bootstrap_cache->setDriver($driver);
+    $bootstrap_cache->attachEvents();
     $bootstrap_cache->render();
 
 ## Usage
@@ -130,6 +132,21 @@ Notes for adding custom exclusions:
 * You can use regular expressions
 
 You need to put this in your configuration file before you call the render() method.
+You can also set the cache to be automatically purged when you make changes to the site. 
+By using the following line of code in your configuration file:
+
+    $bootstrap_cache->attachEvents();
+
+The cache will automatically be purged when Concrete5 fires any of the following events:
+
+* on_page_update
+* on_page_move
+* on_page_duplicate
+* on_page_delete
+* on_page_add
+* on_page_version_approve
+
+Attaching events is optional but recommended.
 
 ### Manually purging cache
 
@@ -160,6 +177,7 @@ You can use [Monolog](https://github.com/Seldaek/monolog) or any other PSR-3 com
     $bootstrap_cache = new BootstrapCache;
     $bootstrap_cache->setDriver($driver);
     $bootstrap_cache->setLogger($logger);
+    $bootstrap_cache->attachEvents();
     $bootstrap_cache->render();
 
 ### Dashboard
