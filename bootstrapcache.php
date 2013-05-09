@@ -169,4 +169,25 @@ class BootstrapCache {
 	public function getDriver($driver) {
 		return $this->driver;
 	}
+
+	/* Events */
+
+	public function attachEvents() {
+		if (!defined('ENABLE_APPLICATION_EVENTS')) {
+			define('ENABLE_APPLICATION_EVENTS', true);
+		}
+
+		$events = array(
+			'on_page_update',
+			'on_page_move',
+			'on_page_duplicate',
+			'on_page_delete',
+			'on_page_add',
+			'on_page_version_approve'
+		);
+
+		foreach ($events as $event) {
+			Events::extend($event, $this, 'purge');
+		}
+	}
 }
