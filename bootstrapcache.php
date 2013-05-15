@@ -8,7 +8,8 @@ class BootstrapCache {
 	static $pages_exclude = array(
 		'login/?',
 		'tools/.*',
-		'dashboard/?.*'
+		'dashboard/?.*',
+		'download_file/.*'
 	);
 
 	static $pages_purge = array(
