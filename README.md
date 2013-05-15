@@ -100,6 +100,7 @@ By default, the following pages will never be cached:
 * /login
 * /tools/.*
 * /dashboard/?.*
+* /download_file/.*
 
 You can add new paths to this list by editing a static variable. For example, if you never want to cache the page with the path /home you can add the following:
 
