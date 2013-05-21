@@ -89,6 +89,7 @@ You must select a driver for how you would like to run your cache. Depending on 
     $bootstrap_cache = new BootstrapCache;
     $bootstrap_cache->setDriver($driver);
     $bootstrap_cache->attachEvents();
+    $bootstrap_cache->setKeyGroup('mysite');
     $bootstrap_cache->render();
 
 ## Usage
@@ -154,6 +155,12 @@ Attaching events is optional but recommended.
 If you want to clear your cache, simple add _purgecache_ to the query string in your URL.
 
 E.g.: http://localhost/?purgecache
+
+### Setting Key Groups
+
+You can create separate groups for your cache by using the setKeyGroup method.
+
+    $bootstrap_cache->setKeyGroup('mysite');
 
 ### Logging
 

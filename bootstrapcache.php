@@ -4,6 +4,7 @@ class BootstrapCache {
 
 	protected $logger;
 	protected $driver;
+    protected $key_group;
 
 	static $pages_exclude = array(
 		'login/?',
@@ -95,7 +96,7 @@ class BootstrapCache {
 
 		// Test if a cache is available and (if yes) return it to the browser. 
 		// Else, the output buffering is activated.
-		$this->driver->setKey($_SERVER['HTTP_HOST'], $page);
+		$this->driver->setKey($this->getKeyGroup(), $page);
 		$has_cached = $this->driver->start();
 		if (!$has_cached) {
 			$this->startup();
@@ -170,6 +171,24 @@ class BootstrapCache {
 	public function getDriver($driver) {
 		return $this->driver;
 	}
+
+    /* Key Group */
+
+    public function setKeyGroup($key_group)
+    {
+        $this->key_group = $key_group;
+    }
+
+    public function getKeyGroup()
+    {
+        if (!empty($this->key_group))
+        {
+            return $this->key_group;
+        }
+        
+        // If there isn't a key group set, use HTTP_HOST
+        return $_SERVER['HTTP_HOST'];
+    }
 
 	/* Events */
 
