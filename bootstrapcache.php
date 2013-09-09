@@ -4,13 +4,15 @@ class BootstrapCache {
 
 	protected $logger;
 	protected $driver;
-    protected $key_group;
+	protected $key_group;
 
 	static $pages_exclude = array(
 		'login/?',
 		'tools/.*',
 		'dashboard/?.*',
-		'download_file/.*'
+		'download_file/.*',
+		'page_not_found/?',
+		'page_forbidden/?'
 	);
 
 	static $pages_purge = array(
@@ -172,23 +174,23 @@ class BootstrapCache {
 		return $this->driver;
 	}
 
-    /* Key Group */
+	/* Key Group */
 
-    public function setKeyGroup($key_group)
-    {
-        $this->key_group = $key_group;
-    }
+	public function setKeyGroup($key_group)
+	{
+		$this->key_group = $key_group;
+	}
 
-    public function getKeyGroup()
-    {
-        if (!empty($this->key_group))
-        {
-            return $this->key_group;
-        }
-        
-        // If there isn't a key group set, use HTTP_HOST
-        return $_SERVER['HTTP_HOST'];
-    }
+	public function getKeyGroup()
+	{
+		if (!empty($this->key_group))
+		{
+			return $this->key_group;
+		}
+		
+		// If there isn't a key group set, use HTTP_HOST
+		return $_SERVER['HTTP_HOST'];
+	}
 
 	/* Events */
 
