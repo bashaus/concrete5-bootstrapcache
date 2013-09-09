@@ -1,6 +1,6 @@
 # Concrete5 Bootstrap Cache
 
-Version 1.0
+Version 1.0.1
 
 Concrete5 has excellent block caching which can increase the speed of your website; however there are instances where you don't need the power of a CMS to serve static pages. BootstrapCache caches content from Concrete 5 applications to speed up production servers. This project is based on Bootstrap Cache by Ryan Hewitt.
 
@@ -23,15 +23,38 @@ Tested on Concrete 5 version 5.6.0.2. Although it wil probably work on older ver
 
 Step 1. Update your concrete/despatcher file
 
-Find the following line:
+Once you've opened the file, you will need to add the following line of code:
+
+    ## Include the bootstrap cache
+    require(DIR_LIBRARIES . '/concrete5-bootstrapcache/autoload.php');
+
+You have two options where you add this line of code, both have advantages and disadvantages.
+
+_Option 1:_ add below the following line (recommended):
+
+    ## Check maintenance mode
+    require(dirname(__FILE__) . '/startup/maintenance_mode_check.php');
+
+Advantages: 
+
+* more flexibility, reduces some issues with error pages (/page_not_found and /page_forbidden)
+
+Disadvantages: 
+
+* more database calls
+
+_Option 2:_ add below the following line:
 
     ## Load session handlers
     require(dirname(__FILE__) . '/startup/session.php');
 
-And add this underneath:
+Advantages: 
 
-    ## Include the bootstrap cache
-    require(DIR_LIBRARIES . '/concrete5-bootstrapcache/autoload.php');
+* the cache is checked before the bulk of database calls have been made
+
+Disadvantages: 
+
+* can sometimes cause repetition issues with error pages (/page_not_found and /page_forbidden)
 
 Step 2. Copy library files
 
@@ -212,5 +235,14 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 * @bashaus -- [Bashkim Isai](http://www.bashkim.com.au/)
 * @bluefuton -- [Chris Rosser](http://www.bluefuton.com/)
+* @avagraphique
 
 If you fork this project and create a pull request add your GitHub username, your full name and website to the end of list above.
+
+## Changelog
+
+### v1.0.1
+
+### v1.0.0
+
+Publically available
