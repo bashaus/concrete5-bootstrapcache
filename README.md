@@ -37,11 +37,11 @@ _Option 1:_ add below the following line (recommended):
 
 Advantages: 
 
-* more flexibility, reduces some issues with error pages (/page_not_found and /page_forbidden)
+* More flexibile, reduces some issues with error pages (/page_not_found and /page_forbidden)
 
 Disadvantages: 
 
-* more database calls
+* More database calls
 
 _Option 2:_ add below the following line:
 
@@ -242,6 +242,8 @@ If you fork this project and create a pull request add your GitHub username, you
 ## Changelog
 
 ### v1.0.1
+
+Fixed page repetition issues identified in #1
 
 ### v1.0.0
 
