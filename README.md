@@ -235,7 +235,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 * @bashaus -- [Bashkim Isai](http://www.bashkim.com.au/)
 * @bluefuton -- [Chris Rosser](http://www.bluefuton.com/)
-* @avagraphique
+* @avagraphique -- [avagraphique](https://github.com/avagraphique)
 
 If you fork this project and create a pull request add your GitHub username, your full name and website to the end of list above.
 
